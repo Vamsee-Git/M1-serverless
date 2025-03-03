@@ -16,7 +16,7 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: 1.4.0  # You can update the version based on your needs
+        terraform_version: 1.10.0  # You can update the version based on your needs
 
     - name: Cache Terraform providers
       uses: actions/cache@v3
@@ -26,12 +26,13 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-terraform-
 
-    - name: Set up AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4.1.0
+      # Step 6: Configure AWS Credentials.
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        region: "us-east-1"
+        aws-region: 'ap-south-1'
 
     - name: Zip Lambda functions
       run: |
