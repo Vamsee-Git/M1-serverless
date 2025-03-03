@@ -43,7 +43,7 @@ resource "aws_lambda_function" "add_data" {
   runtime       = "python3.8"
   role          = aws_iam_role.lambda_exec.arn
   handler       = "lambda_function.handler"
-  filename      = "lambda_functions/add_data.zip"
+  filename      = "add_data.zip"
 
   environment {
     variables = {
@@ -57,7 +57,7 @@ resource "aws_lambda_function" "get_data" {
   runtime       = "python3.8"
   role          = aws_iam_role.lambda_exec.arn
   handler       = "lambda_function.handler"
-  filename      = "lambda_functions/get_data.zip"
+  filename      = "get_data.zip"
 
   environment {
     variables = {
