@@ -37,8 +37,8 @@ jobs:
     - name: Zip Lambda functions
       run: |
         # Navigate to the Lambda directories and zip the functions
-        zip -r lambda/add_data.zip ./lambda/add_data
-        zip -r lambda/get_data.zip ./lambda/get_data
+        zip -r modules/lambda/add_data.zip ./modules/lambda/add_data
+        zip -r modules/lambda/get_data.zip ./modules/lambda/get_data
 
     - name: Terraform Init
       run: terraform init
